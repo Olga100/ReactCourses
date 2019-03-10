@@ -11,12 +11,12 @@ import HelloWorld3 from './HelloWorldComponents/HelloWorld3.jsx';
 const helloWorld = React.createElement('h1', {}, 'Hello, World-0 !');
 
 ReactDOM.render(
-    <div>
+    <>
         {helloWorld}
         <HelloWorld1 />
         <HelloWorld2 />
         <HelloWorld3 />
-    </div>,
+    </>,
     document.getElementById('root')
 );
 
