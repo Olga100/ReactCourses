@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./test",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js",
     "watch": "webpack --watch"
@@ -27,6 +27,7 @@
     "jest": "^24.1.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "react-hot-loader": "^4.8.0",
     "react-test-render": "^1.1.1",
     "sass-loader": "^7.1.0",

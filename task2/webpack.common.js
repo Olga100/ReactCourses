@@ -32,7 +32,7 @@ module.exports = {
             {
                 test: /\.s(a|c)ss$/,
                 use: [
-                      // devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                       // devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                     {
                         loader: "style-loader"
                     }, {
@@ -44,6 +44,7 @@ module.exports = {
             }
         ]
     },
+    devtool: false,
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/index.html",

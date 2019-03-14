@@ -1,7 +1,9 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
+const webpack = require('webpack');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = merge(common, {
@@ -10,10 +12,22 @@ module.exports = merge(common, {
         minimizer: [new UglifyJsPlugin()],
     },
     plugins: [
+      // new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[name].[hash].css',
-            chunkFilename: '[id].[hash].css'
+            filename: '[name].css'
         }),
+        new OptimizeCSSAssetsPlugin({}),
         new CleanWebpackPlugin()
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.s(a|c)ss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader"
+                ]
+            }
+        ]
+    }
 })

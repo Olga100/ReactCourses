@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './styles/style.sass';
+import './HelloWorldComponents/HelloWorld.scss';
 
 import HelloWorld1 from './HelloWorldComponents/HelloWorld1.jsx';
 import HelloWorld2 from './HelloWorldComponents/HelloWorld2.jsx';
@@ -21,9 +21,3 @@ ReactDOM.render(
 );
 
 module.hot.accept();
-/*
-  //  React.createElemen: {helloWorld-0}
- //React.Component        <HelloWorld1 />
- // React.PureComponent   <HelloWorld2 />
- //functional components  <HelloWorld3 />
- */

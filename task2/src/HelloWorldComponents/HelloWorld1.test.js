@@ -1,4 +1,4 @@
-import HelloWorld1 from '../src/HelloWorldComponents/HelloWorld1.jsx';
+import HelloWorld1 from './HelloWorld1.jsx';
 import React from 'react';
 import {shallow} from 'enzyme';
 
