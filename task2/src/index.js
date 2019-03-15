@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './HelloWorldComponents/HelloWorld.scss';
+import './HelloWorld';
 
-import HelloWorld1 from './HelloWorldComponents/HelloWorld1.jsx';
-import HelloWorld2 from './HelloWorldComponents/HelloWorld2.jsx';
-import HelloWorld3 from './HelloWorldComponents/HelloWorld3.jsx';
+import HelloWorld1 from './HelloWorldComponents/HelloWorld1/HelloWorld1';
+import HelloWorld2 from './HelloWorldComponents/HelloWorld2/HelloWorld2';
+import HelloWorld3 from './HelloWorldComponents/HelloWorld3/HelloWorld3';
 
 
 const helloWorld = React.createElement('h1', {}, 'Hello, World-0 !');
@@ -20,4 +20,6 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-module.hot.accept();
+if (module.hot) {
+    module.hot.accept();
+}

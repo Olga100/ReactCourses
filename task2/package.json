@@ -39,7 +39,14 @@
     "webpack-merge": "^4.2.1"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./test/enzyme.setup.js"
+    "setupFilesAfterEnv": [
+      "./enzyme.setup.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "babel-jest"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
   },
   "dependencies": {
     "prop-types": "^15.7.2",
