@@ -1,4 +1,4 @@
-import HelloWorld2 from './HelloWorld2';
+import HelloWorld2 from './index';
 import React from 'react';
 import {shallow} from 'enzyme';
 

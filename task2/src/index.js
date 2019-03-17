@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 
 import './HelloWorld';
 
-import HelloWorld1 from './HelloWorldComponents/HelloWorld1/HelloWorld1';
-import HelloWorld2 from './HelloWorldComponents/HelloWorld2/HelloWorld2';
-import HelloWorld3 from './HelloWorldComponents/HelloWorld3/HelloWorld3';
+import HelloWorld1 from './HelloWorldComponents/HelloWorld1';
+import HelloWorld2 from './HelloWorldComponents/HelloWorld2';
+import HelloWorld3 from './HelloWorldComponents/HelloWorld3';
 
 
 const helloWorld = React.createElement('h1', {}, 'Hello, World-0 !');
