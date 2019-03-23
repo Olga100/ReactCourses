@@ -13,11 +13,13 @@ class App extends Component {
         super(props);
 
         this.state = {
-            movies: null
+            movies: []
         };
     }
 
-
+    componentDidMount() {
+        testApi().then(movies => this.setState({movies: movies}));
+    }
 
     render() {
         return (
@@ -25,15 +27,13 @@ class App extends Component {
 
                <Header/>
                 <ErrorBoundary>
-                  <MovieList error={4} movies={testApi()}/>
+                  <MovieList error={4} movies={this.state.movies}/>
                 </ErrorBoundary>
                 <Footer/>
 
             </div>
         );
     }
-
-
 }
 
 export default App;

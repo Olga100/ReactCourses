@@ -6,12 +6,12 @@ class MovieThumbnail extends Component {
         const movie = this.props.movie;
         return (
             <div className="movieThumbnailContainer">
-                <div className="poster">{this.props.movie.poster_path}</div>
+                <div className="poster">{movie.poster_path}</div>
                 <div className="title-year">
-                    <span> {this.props.movie.title}</span>
-                    <span>{this.props.movie.release_date}</span>
+                    <span> {movie.title}</span>
+                    <span>{movie.release_date}</span>
                 </div>
-                <div>{this.props.movie.genres}</div>
+                <div>{movie.genres}</div>
 
             </div>
         )

@@ -3,18 +3,15 @@ import React, { Component } from 'react';
 import './MovieList.scss';
 
 import LineResultMovieList from './../../Components/LineResultMovieList/LineResultMovieList';
-
 import MovieThumbnail from './../../Components/MovieThumblail/MovieThumbnail';
 
 class MovieList extends Component  {
     constructor(props) {
         super(props);
-
-       // this.testApi = this.testApi.bind(this);
     }
 
-    renderItems() {
 
+    renderItems() {
         if(this.props.movies) {
         return this.props.movies.map(function (item) {
             return (<MovieThumbnail key={item.id} movie={item}/>);
