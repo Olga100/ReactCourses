@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 
 import './MovieList.scss';
 
+import LineResultMovieList from './../../Components/LineResultMovieList/LineResultMovieList';
 
-import LineResultMovieList from './../Components/LineResultMovieList/LineResultMovieList';
-
+import MovieThumbnail from './../../Components/MovieThumblail/MovieThumbnail';
 
 class MovieList extends Component  {
     constructor(props) {
         super(props);
-        this
+
+       // this.testApi = this.testApi.bind(this);
     }
 
     renderItems() {
@@ -19,7 +20,8 @@ class MovieList extends Component  {
             return (<MovieThumbnail key={item.id} movie={item}/>);
         });
     } else {
-            return (<div className="noFilms">No films found</div>)
+            return (<div className="noFilms">No films found
+            </div>)
         }
     }
 

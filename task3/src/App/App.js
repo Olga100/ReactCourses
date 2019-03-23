@@ -2,15 +2,22 @@ import React, { Component } from 'react';
 
 import './App.scss';
 
-import Header from '../Header/Header';
-import MovieList from '../MovieList/MovieList';
-import Footer from '../Footer/Footer';
+import Header from '../Containers/Header/Header';
+import MovieList from '../Containers/MovieList/MovieList';
+import Footer from '../Components/Footer/Footer';
 import ErrorBoundary from '../Components/ErrorBoundary';
+import testApi from './../api';
 
 class App extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            movies: null
+        };
     }
+
+
 
     render() {
         return (
@@ -18,7 +25,7 @@ class App extends Component {
 
                <Header/>
                 <ErrorBoundary>
-                  <MovieList error={4}/>
+                  <MovieList error={4} movies={testApi()}/>
                 </ErrorBoundary>
                 <Footer/>
 
