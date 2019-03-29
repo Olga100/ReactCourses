@@ -1,6 +1,26 @@
 .lineResultContainer {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 20px;
   font-size: 14px;
+  font-weight: bold;
   background-color: #f5f5f5;
+
+  span:first-child {
+    margin-left: 35px;
+  }
+  .sortByWrapper {
+    span {
+      margin-right: 35px;
+      cursor: pointer;
+    }
+    span:first-child {
+      margin-right: 20px;
+      cursor: default;
+    }
+    .active {
+      color: #c15d69;
+    }
+  }
 }

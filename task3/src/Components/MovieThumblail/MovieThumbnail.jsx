@@ -2,16 +2,25 @@ import React, {Component} from 'react';
 import './MovieThumbnail.scss';
 
 class MovieThumbnail extends Component {
+
+    getYear(isoDate) {
+        return new Date(isoDate).getFullYear();
+    }
+
+    renderGenres(arr) {
+        return arr.map((item) => (<span className="genres" key={item}>{item}</span>));
+    }
+
     render() {
         const movie = this.props.movie;
         return (
             <div className="movieThumbnailContainer">
-                <div className="poster">{movie.poster_path}</div>
+                <div className="poster"><img src={movie.poster_path} alt="poster"/></div>
                 <div className="title-year">
-                    <span> {movie.title}</span>
-                    <span>{movie.release_date}</span>
+                    <div> {movie.title}</div>
+                    <span>{this.getYear(movie.release_date)}</span>
                 </div>
-                <div>{movie.genres}</div>
+                <div>{this.renderGenres(movie.genres)}</div>
 
             </div>
         )

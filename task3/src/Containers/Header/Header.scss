@@ -69,6 +69,10 @@ $netflexColor: #c15d69;
         border: none;
         outline: none;
       }
+
+      .activeButton {
+        background-color: $netflexColor;
+      }
     }
 
     .search {
