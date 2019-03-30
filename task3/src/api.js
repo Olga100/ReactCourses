@@ -20,13 +20,8 @@ function getMovies(search, searchBy, sortBy) {
     let request = 'https://reactjs-cdp.herokuapp.com/movies?' + params.join('&');
     return axios.get(request)
             .then(res => {
-                console.log(res.data);
                 return res.data;
             });
 }
 
 export default getMovies;
-
-//?search=Fantasy&searchBy=genres
-//?search=Star%20war&searchBy=title"
-//?sortBy=rating&search=Fantasy&searchBy=genres"

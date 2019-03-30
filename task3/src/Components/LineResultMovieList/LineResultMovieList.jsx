@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './LineResultMovieList.scss';
 
 const LineResultMovieList = ({moviesCount, sortBy, sortByChanged}) => {
-    if(moviesCount  != null &&  sortBy  != null) {
-        return (
-        <div className="lineResultContainer">
+    return moviesCount === null || sortBy === null
+        ? null
+        : <div className="lineResultContainer">
             <span>{moviesCount} movies found</span>
             <span className="sortByWrapper">
             <span>Sort by</span>
@@ -17,10 +19,12 @@ const LineResultMovieList = ({moviesCount, sortBy, sortByChanged}) => {
             >rating</span>
             </span>
         </div>
-        )
-    } else {
-        return (<div className="lineResultContainer" />)
-    }
+};
+
+LineResultMovieList.propTypes = {
+    moviesCount: PropTypes.number.isRequired,
+    sortBy:  PropTypes.string.isRequired,
+    sortByChanged: PropTypes.func,
 };
 
 export default LineResultMovieList;

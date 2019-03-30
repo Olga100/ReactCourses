@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
 import './MovieThumbnail.scss';
 
 class MovieThumbnail extends Component {
@@ -12,37 +14,23 @@ class MovieThumbnail extends Component {
     }
 
     render() {
-        const movie = this.props.movie;
+        const {poster_path, title, release_date, genres} = this.props.movie;
         return (
             <div className="movieThumbnailContainer">
-                <div className="poster"><img src={movie.poster_path} alt="poster"/></div>
+                <div className="poster"><img src={poster_path} alt="poster"/></div>
                 <div className="title-year">
-                    <div> {movie.title}</div>
-                    <span>{this.getYear(movie.release_date)}</span>
+                    <div> {title}</div>
+                    <span>{this.getYear(release_date)}</span>
                 </div>
-                <div>{this.renderGenres(movie.genres)}</div>
+                <div>{this.renderGenres(genres)}</div>
 
             </div>
         )
     }
 }
 
+MovieThumbnail.propTypes = {
+    movie: PropTypes.object.isRequired
+};
+
 export default MovieThumbnail;
-
-
-/*{
-    "id": 0,
-    "title": "string",
-    "tagline": "string",
-    "vote_average": 0,
-    "vote_count": 0,
-    "release_date": "string",
-    "poster_path": "string",
-    "overview": "string",
-    "budget": 0,
-    "revenue": 0,
-    "runtime": 0,
-    "genres": [
-    "string"
-]
-}*/
