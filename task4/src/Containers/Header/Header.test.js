@@ -25,7 +25,7 @@ describe ('Header', () => {
         expect(json).toMatchSnapshot();
     });
 
-    it('Calls function searchByChanged in the Header', () => {
+    it('Calls function searchByChanged on search button', () => {
 
         const inputValue = "movie333";
         const searchBy = "title";
@@ -42,4 +42,25 @@ describe ('Header', () => {
         expect(searchByChangedSpy).toHaveBeenCalledWith(inputValue, searchBy);
     });
 
+    it('Calls function searchByChanged on title button', () => {
+
+        const searchByChangedSpy = jest.fn();
+
+        const content = mount(<Header searchBy={'title'} searchByChanged={searchByChangedSpy}/>);
+        const titleButton = content.find("#title");
+        titleButton.simulate('click');
+
+        expect(searchByChangedSpy).toHaveBeenCalledWith('', 'title');
+    });
+
+    it('Calls function searchByChanged on genre button', () => {
+
+        const searchByChangedSpy = jest.fn();
+
+        const content = mount(<Header searchBy={'title'} searchByChanged={searchByChangedSpy}/>);
+        const titleButton = content.find("#genre");
+        titleButton.simulate('click');
+
+        expect(searchByChangedSpy).toHaveBeenCalledWith('', 'genre');
+    });
 });

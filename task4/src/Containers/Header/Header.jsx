@@ -60,11 +60,13 @@ class Header extends Component {
                     <div className="filterOptionsContainer">
                         <span className="searchTitle">SEARCH BY</span>
                         <button
+                            id="title"
                             type="button"
                             className={(searchBy === "title")? "activeButton" : null}
                             onClick = {this.handleSearchByTitle}                          //fix to handle...
                         >TITLE</button>
                         <button
+                            id="genre"
                             type="button"
                             className={(searchBy === "genres")? "activeButton" : null}
                             onClick = {this.handleSearchByGenre}
