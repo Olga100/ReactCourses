@@ -61,6 +61,6 @@ describe ('Header', () => {
         const titleButton = content.find("#genre");
         titleButton.simulate('click');
 
-        expect(searchByChangedSpy).toHaveBeenCalledWith('', 'genre');
+        expect(searchByChangedSpy).toHaveBeenCalledWith('', 'genres');
     });
 });
