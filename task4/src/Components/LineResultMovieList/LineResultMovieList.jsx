@@ -28,8 +28,8 @@ const LineResultMovieList = ({moviesCount, sortBy, sortByChanged}) => {
 };
 
 LineResultMovieList.propTypes = {
-    moviesCount: PropTypes.number.isRequired,
-    sortBy:  PropTypes.string.isRequired,
+    moviesCount: PropTypes.number,
+    sortBy:  PropTypes.string,
     sortByChanged: PropTypes.func,
 };
 

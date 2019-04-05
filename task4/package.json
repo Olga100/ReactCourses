@@ -42,7 +42,10 @@
     "webpack-merge": "^4.2.1"
   },
   "jest": {
-    "testPathIgnorePatterns": ["/node_modules/", "/cypress/"],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/cypress/"
+    ],
     "setupFilesAfterEnv": [
       "./enzyme.setup.js"
     ],

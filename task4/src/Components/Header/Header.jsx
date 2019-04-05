@@ -69,11 +69,11 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-    searchText: PropTypes.string.isRequired,
+    searchText: PropTypes.string,
     searchBy: PropTypes.string.isRequired,
-    searchTextChanged: PropTypes.func.isRequired,
-    searchByChanged: PropTypes.func.isRequired,
-    search: PropTypes.func.isRequired
+    searchTextChanged: PropTypes.func,
+    searchByChanged: PropTypes.func,
+    search: PropTypes.func
 };
 
 export default Header;

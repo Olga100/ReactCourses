@@ -11,12 +11,14 @@ describe('<MovieList/>', () => {
         const movies =
             [
                 {
+                    id: 23456,
                     title: "title1",
                     poster_path: "http://www.theamazingpics.com/wp-content/uploads/2014/05/Amazing-Picture-of-A-Japanese-Garden-in-Portland-USA.jpg",
                     genres: ["horror"],
                     release_date: "2011-10-05T14:48:00.000Z"
                 },
                 {
+                    id: 12345,
                     title: "title2",
                     poster_path: "http://www.theamazingpics.com/wp-content/uploads/2014/05/Amazing-Picture-of-A-Japanese-Garden-in-Portland-USA.jpg",
                     genres: ["fantasy"],
