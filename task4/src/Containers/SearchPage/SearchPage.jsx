@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from '../Header/Header';
+import Header from '../../Components/Header/Header';
 import MovieList from '../../Components/MovieList/MovieList';
 import ErrorBoundary from '../../Components/ErrorBoundary';
 import LineResultMovieList from '../../Components/LineResultMovieList/LineResultMovieList';
@@ -12,7 +12,7 @@ class SearchPage extends Component {
 
         this.state = {
             movies: [],
-            search: "",
+            searchText: "",
             searchBy: "title",
             sortBy: "release_date"
         };
@@ -23,9 +23,9 @@ class SearchPage extends Component {
     }
 
     loadMovies() {
-        const { search, searchBy, sortBy} = this.state;
+        const { searchText, searchBy, sortBy} = this.state;
 
-        getMovies(search, searchBy, sortBy)
+        getMovies(searchText, searchBy, sortBy)
             .then(movies => this.setState({movies: movies.data }));
     };
 
@@ -34,20 +34,30 @@ class SearchPage extends Component {
             () => this.loadMovies());
     };
 
-    handleSearchByChanged = (search, searchBy) => {
-        this.setState({search: search, searchBy: searchBy},
-            () => this.loadMovies());
+    handleSearchTextChanged = (searchText) => {
+        this.setState({searchText: searchText});
+    };
+
+    handleSearchByChanged = (searchBy) => {
+        this.setState({searchBy: searchBy});
+    };
+
+    handleSearch = () => {
+        this.loadMovies();
     };
 
     render() {
-        const {searchBy, sortBy, movies} = this.state;
+        const {searchText, searchBy, sortBy, movies} = this.state;
 
         return (
             <div className="App">
                 <ErrorBoundary>
                     <Header
+                        searchText={searchText}
                         searchBy={searchBy}
-                        searchByChanged = {this.handleSearchByChanged}
+                        searchTextChanged={this.handleSearchTextChanged}
+                        searchByChanged={this.handleSearchByChanged}
+                        search={this.handleSearch}
                     />
 
                     <LineResultMovieList

@@ -25,13 +25,15 @@ describe ('Header', () => {
         expect(json).toMatchSnapshot();
     });
 
-    it('Calls function searchByChanged on search button', () => {
+    it('Search by title with text', () => {
 
         const inputValue = "movie333";
         const searchBy = "title";
+        const searchTextChangedSpy = jest.fn();
         const searchByChangedSpy = jest.fn();
+        const searchSpy = jest.fn();
 
-        const content = mount(<Header searchBy={'title'} searchByChanged={searchByChangedSpy}/>);
+        const content = mount(<Header searchBy={'title'} searchByChanged={searchByChangedSpy} searchTextChanged={searchTextChangedSpy} search={searchSpy} />);
         const searchInput = content.find(".searchMovie");
         searchInput.instance().value = inputValue;
         searchInput.simulate('change');
@@ -39,28 +41,33 @@ describe ('Header', () => {
         const form = content.find('form').at(0);
         form.simulate('submit');
 
-        expect(searchByChangedSpy).toHaveBeenCalledWith(inputValue, searchBy);
+        expect(searchTextChangedSpy).toHaveBeenCalledWith(inputValue);
+        expect(searchSpy).toHaveBeenCalled();
     });
 
-    it('Calls function searchByChanged on title button', () => {
+    it('Search by title', () => {
 
+        const searchTextChangedSpy = jest.fn();
         const searchByChangedSpy = jest.fn();
+        const searchSpy = jest.fn();
 
-        const content = mount(<Header searchBy={'title'} searchByChanged={searchByChangedSpy}/>);
+        const content = mount(<Header searchBy={'title'} searchByChanged={searchByChangedSpy} searchTextChanged={searchTextChangedSpy} search={searchSpy} />);
         const titleButton = content.find("#title");
         titleButton.simulate('click');
 
-        expect(searchByChangedSpy).toHaveBeenCalledWith('', 'title');
+        expect(searchByChangedSpy).toHaveBeenCalledWith('title');
     });
 
-    it('Calls function searchByChanged on genre button', () => {
+    it('Search by genre', () => {
 
+        const searchTextChangedSpy = jest.fn();
         const searchByChangedSpy = jest.fn();
+        const searchSpy = jest.fn();
 
-        const content = mount(<Header searchBy={'title'} searchByChanged={searchByChangedSpy}/>);
+        const content = mount(<Header searchBy={'title'} searchByChanged={searchByChangedSpy} searchTextChanged={searchTextChangedSpy} search={searchSpy} />);
         const titleButton = content.find("#genre");
         titleButton.simulate('click');
 
-        expect(searchByChangedSpy).toHaveBeenCalledWith('', 'genres');
+        expect(searchByChangedSpy).toHaveBeenCalledWith('genres');
     });
 });

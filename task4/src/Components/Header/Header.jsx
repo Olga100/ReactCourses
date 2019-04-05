@@ -5,43 +5,31 @@ import './Header.scss';
 
 class Header extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            inputValue: "",
-            searchBy: "title"
-        };
-    }
-
-    searchByChanged = () => {
+    setSearchBy = (searchBy) => {
         const { searchByChanged } = this.props;
-        const { inputValue, searchBy } = this.state;
 
-        searchByChanged(inputValue, searchBy);
+        searchByChanged(searchBy);
     };
 
     handleSearchByTitle = () => this.setSearchBy("title");
     handleSearchByGenre = () => this.setSearchBy("genres");
 
     handleInputChange = (event) => {
-        this.setState({inputValue: event.target.value});
-    };
+        const { searchTextChanged } = this.props;
 
-    setSearchBy = (searchBy) => {
-        this.setState({searchBy: searchBy},
-            () => this.searchByChanged());
+        searchTextChanged(event.target.value);
     };
 
     handleSubmit = (e) => {
+        const { search, searchText, searchBy } = this.props;
+
         e.preventDefault();
-        this.searchByChanged();
+        search(searchText, searchBy);
     };
 
     render() {
 
-        const { searchBy } = this.props;
-        const { inputValue } = this.state;
+        const { searchText, searchBy } = this.props;
 
         return (
             <form onSubmit={this.handleSubmit}>
@@ -52,7 +40,7 @@ class Header extends Component {
                     <input
                         className="searchMovie"
                         placeholder="search your movie"
-                        value={inputValue}
+                        value={searchText}
                         onChange={this.handleInputChange}
                     />
                 </div>
@@ -81,8 +69,11 @@ class Header extends Component {
 }
 
 Header.propTypes = {
+    searchText: PropTypes.string.isRequired,
     searchBy: PropTypes.string.isRequired,
-    searchByChanged: PropTypes.func.isRequired
+    searchTextChanged: PropTypes.func.isRequired,
+    searchByChanged: PropTypes.func.isRequired,
+    search: PropTypes.func.isRequired
 };
 
 export default Header;
