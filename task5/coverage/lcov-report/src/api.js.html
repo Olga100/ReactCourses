@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>0/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/6</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>0/11</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -78,26 +78,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -105,27 +105,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as React from 'react';
 import axios from 'axios';
 &nbsp;
-function getMovies(search, searchBy, sortBy) {
-    let params = [];
+function <span class="fstat-no" title="function not covered" >getMovies(</span>search, searchBy, sortBy) {
+    let params = <span class="cstat-no" title="statement not covered" >[];</span>
 &nbsp;
-    if (search) {
-        params.push(`search=${search}`);
+<span class="cstat-no" title="statement not covered" >    if (search) {</span>
+<span class="cstat-no" title="statement not covered" >        params.push(`search=${search}`);</span>
     }
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (searchBy) {
-        params.push(`searchBy=${searchBy}`);
+<span class="cstat-no" title="statement not covered" >    if (searchBy) {</span>
+<span class="cstat-no" title="statement not covered" >        params.push(`searchBy=${searchBy}`);</span>
     }
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (sortBy) {
-        params.push(`sortBy=${sortBy}`);
-        params.push('sortOrder=desc');
+<span class="cstat-no" title="statement not covered" >    if (sortBy) {</span>
+<span class="cstat-no" title="statement not covered" >        params.push(`sortBy=${sortBy}`);</span>
+<span class="cstat-no" title="statement not covered" >        params.push('sortOrder=desc');</span>
     }
 &nbsp;
-    let request = 'https://reactjs-cdp.herokuapp.com/movies?' + params.join('&amp;');
+    let request = <span class="cstat-no" title="statement not covered" >'https://reactjs-cdp.herokuapp.com/movies?' + params.join('&amp;');</span>
 &nbsp;
-    return axios.get(request)
-            .then(res =&gt; {
-                return res.data;
+<span class="cstat-no" title="statement not covered" >    return axios.get(request)</span>
+            .then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; {
+<span class="cstat-no" title="statement not covered" >                return res.data;</span>
             });
 }
 &nbsp;
@@ -136,7 +136,7 @@ export default getMovies;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Apr 07 2019 08:58:32 GMT+0300 (GMT+03:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Apr 14 2019 20:49:51 GMT+0300 (GMT+03:00)
 </div>
 </div>
 <script src="..\prettify.js"></script>
