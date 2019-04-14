@@ -1,5 +1,5 @@
 import * as actions from '../Actions/Actions';
-import {mainReducer} from './mainReducer';
+import  mainReducer  from './mainReducer';
 import movies from '../mocks/movies.json';
 
 describe('reducer mainReducer', () => {

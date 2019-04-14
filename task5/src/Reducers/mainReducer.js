@@ -1,6 +1,6 @@
 import * as actions from '../Actions/Actions';
 
-export function mainReducer(state = {}, action) {
+export default function mainReducer(state = {}, action) {
     const newState = Object.assign({}, state);
     if(!newState.viewState) {
         newState.viewState = {};
