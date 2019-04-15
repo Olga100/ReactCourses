@@ -1,9 +1,8 @@
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import mainReducer from './Reducers/mainReducer';
 
 const persistConfig = {
@@ -11,17 +10,17 @@ const persistConfig = {
     storage: storage
 };
 
+let devTools = f => f;
+
+if (process.browser &&
+    process.env.NODE_ENV !== 'production' &&
+    window.__REDUX_DEVTOOLS_EXTENSION__) {
+    devTools = window.__REDUX_DEVTOOLS_EXTENSION__();
+}
+
 const persistedReducer = persistReducer(persistConfig, mainReducer);
 
-const store = createStore(persistedReducer, {
-    viewState: {
-        movies: [],
-            sortBy: 'release_date',
-            searchBy: 'title',
-            searchText: ""
-    }
-},
-applyMiddleware(thunkMiddleware));
+const store = createStore(persistedReducer, compose(applyMiddleware(thunkMiddleware), devTools));
 
 const persistor = persistStore(store);
 

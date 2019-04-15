@@ -5,8 +5,9 @@ import Header from '../../Components/Header/Header';
 import MovieList from '../../Components/MovieList/MovieList';
 import ErrorBoundary from '../../Components/ErrorBoundary';
 import LineResultMovieList from '../../Components/LineResultMovieList/LineResultMovieList';
-//import getMovies from '../../api';
-import {loadMovies, sortBy, searchBy, searchText} from '../../Actions/Actions';
+import { loadMovies, sortBy, searchBy, searchText } from '../../Actions/Actions';
+import { getQuery } from '../../Reducers/mainReducer';
+
 
 class SearchPageView extends Component {
     constructor(props) {
@@ -15,18 +16,24 @@ class SearchPageView extends Component {
     }
 
     componentDidMount() {
-        this.props.loadMovies();
+        const { loadMovies, query } = this.props;
+
+        loadMovies(query);
     }
 
 
     handleSortByChanged = (sortBy) => {
-        this.props.sortByChanged(sortBy);
-        this.props.loadMovies(this.props.searchText, this.props.searchBy, sortBy);
+        const { sortByChanged } = this.props;
+
+        sortByChanged(sortBy);
+        setTimeout(() => this.handleSearch());
     };
 
 
     handleSearch = () => {
-        this.props.loadMovies(this.props.searchText, this.props.searchBy, this.props.sortBy);
+        const { loadMovies, query } = this.props;
+
+        loadMovies(query);
     };
 
     render() {
@@ -59,18 +66,19 @@ class SearchPageView extends Component {
 
 
 const mapStateToProps =  (state) => ({
-    movies: state.viewState.movies,
-    sortBy: state.viewState.sortBy,
-    searchBy: state.viewState.searchBy,
-    searchText: state.viewState.searchText
+    movies: state.movies,
+    sortBy: state.sortBy,
+    searchBy: state.searchBy,
+    searchText: state.searchText,
+    query: getQuery(state)
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    loadMovies: (search, searchBy, sortBy) => dispatch(loadMovies(search, searchBy, sortBy)),
-    sortByChanged: (x) => dispatch(sortBy(x)),
-    searchByChanged: (x) => dispatch(searchBy(x)),
-    searchTextChanged: (text) => dispatch(searchText(text))
-});
+const mapDispatchToProps = {
+    loadMovies,
+    sortByChanged: sortBy,
+    searchByChanged: searchBy,
+    searchTextChanged: searchText
+};
 
 const SearchPage = connect(mapStateToProps, mapDispatchToProps)(SearchPageView);
 

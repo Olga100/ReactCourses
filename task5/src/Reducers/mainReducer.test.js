@@ -1,4 +1,4 @@
-import * as actions from '../Actions/Actions';
+import {RECEIVE_MOVIES, SORT_BY, SEARCH_BY, SEARCH_TEXT} from'../constants';
 import  mainReducer  from './mainReducer';
 import movies from '../mocks/movies.json';
 
@@ -6,42 +6,42 @@ describe('reducer mainReducer', () => {
 
     it('should handle RECEIVE_MOVIES', () => {
         const successAction = {
-            type: actions.RECEIVE_MOVIES,
+            type: RECEIVE_MOVIES,
             movies: movies
         };
-        expect(mainReducer({}, successAction).viewState.movies).toEqual(movies);
+        expect(mainReducer({}, successAction).movies).toEqual(movies);
     });
 
     it('should handle SORT_BY', () => {
         const sortField = 'test_field';
 
         const successAction = {
-            type: actions.SORT_BY,
+            type: SORT_BY,
             field: sortField
         };
 
-        expect(mainReducer({}, successAction).viewState.sortBy).toEqual(sortField);
+        expect(mainReducer({}, successAction).sortBy).toEqual(sortField);
     });
 
     it('should handle SEARCH_BY', () => {
         const searchField = 'test_field';
 
         const successAction = {
-            type: actions.SEARCH_BY,
+            type: SEARCH_BY,
             field: searchField
         };
 
-        expect(mainReducer({}, successAction).viewState.searchBy).toEqual(searchField);
+        expect(mainReducer({}, successAction).searchBy).toEqual(searchField);
     });
 
     it('should handle SEARCH_TEXT', () => {
         const text = 'test_field';
 
         const successAction = {
-            type: actions.SEARCH_TEXT,
+            type: SEARCH_TEXT,
             text: text
         };
 
-        expect(mainReducer({}, successAction).viewState.searchText).toEqual(text);
+        expect(mainReducer({}, successAction).searchText).toEqual(text);
     });
 });

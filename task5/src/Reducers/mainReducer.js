@@ -1,30 +1,42 @@
-import * as actions from '../Actions/Actions';
+import {RECEIVE_MOVIES, SORT_BY, SEARCH_BY, SEARCH_TEXT} from'../constants';
 
-export default function mainReducer(state = {}, action) {
-    const newState = Object.assign({}, state);
-    if(!newState.viewState) {
-        newState.viewState = {};
+const initialState = {
+    movies: [],
+    sortBy: 'release_date',
+    searchBy: 'title',
+    searchText: ""
+};
+
+export default function mainReducer(state = initialState, action) {
+    const { type } = action;
+
+    switch (type) {
+        case RECEIVE_MOVIES:
+            return {...state, movies: action.movies};
+        case SORT_BY:
+            return {...state, sortBy: action.field};
+        case SEARCH_BY:
+            return {...state, searchBy: action.field};
+        case SEARCH_TEXT:
+            return {...state, searchText: action.text};
+        default:
+            return state;
     }
-
-    if(action.type === actions.RECEIVE_MOVIES) {
-        newState.viewState.movies = action.movies;
-        return newState;
-    }
-
-    if(action.type === actions.SORT_BY) {
-        newState.viewState.sortBy = action.field;
-        return newState;
-    }
-
-    if(action.type === actions.SEARCH_BY) {
-        newState.viewState.searchBy = action.field;
-        return newState;
-    }
-
-    if(action.type === actions.SEARCH_TEXT) {
-        newState.viewState.searchText = action.text;
-        return newState;
-    }
-
-    return state;
 }
+
+export const getQuery = state => {
+    let {searchText, searchBy, sortBy} = state;
+    let params = [];
+
+    if (searchText) {
+        params.push(`search=${searchText}`);
+    }
+    if (searchBy) {
+        params.push(`searchBy=${searchBy}`);
+    }
+    if (sortBy) {
+        params.push(`sortBy=${sortBy}`);
+        params.push('sortOrder=desc');
+    }
+    return 'https://reactjs-cdp.herokuapp.com/movies?' + params.join('&');
+};

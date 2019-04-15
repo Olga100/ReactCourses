@@ -1,10 +1,3 @@
-import React from 'react';
-import {Provider} from 'react-redux'
-import {createStore, applyMiddleware} from 'redux';
-import renderer from 'react-test-renderer';
-import {mount} from 'enzyme';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import mainReducer from '../../Reducers/mainReducer';
 import thunkMiddleware from 'redux-thunk';
 import expect from 'expect';
@@ -13,12 +6,10 @@ import SearchPage from './SearchPage';
 import movies  from '../../mocks/movies.json';
 
 const initialState = {
-    viewState: {
-        movies: [],
-        sortBy: 'release_date',
-        searchBy: 'title',
-        searchText: ""
-    }
+    movies: [],
+    sortBy: 'release_date',
+    searchBy: 'title',
+    searchText: ""
 };
 
 describe ('SearchPage', () => {
@@ -30,12 +21,10 @@ describe ('SearchPage', () => {
         mock.onGet('https://reactjs-cdp.herokuapp.com/movies?searchBy=title&sortBy=release_date&sortOrder=desc').reply(200, {data: []});
 
         const state = {
-            viewState: {
-                movies: [],
-                sortBy: 'release_date',
-                searchBy: 'title',
-                searchText: ""
-            }
+            movies: [],
+            sortBy: 'release_date',
+            searchBy: 'title',
+            searchText: ""
         };
 
         const store = createStore(mainReducer, initialState, applyMiddleware(thunkMiddleware));
@@ -65,12 +54,10 @@ describe ('SearchPage', () => {
             ];
 
         const expectedStore = {
-            viewState: {
-                movies: expectedMovies,
-                sortBy: 'release_date',
-                searchBy: 'title',
-                searchText: searchText
-            }
+            movies: expectedMovies,
+            sortBy: 'release_date',
+            searchBy: 'title',
+            searchText: searchText
         };
 
         const mock = new MockAdapter(axios);
@@ -95,4 +82,3 @@ describe ('SearchPage', () => {
         });
     });
 });
-
