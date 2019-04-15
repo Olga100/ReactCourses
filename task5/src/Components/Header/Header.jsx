@@ -16,7 +16,6 @@ class Header extends Component {
 
     handleInputChange = (event) => {
         const { searchTextChanged } = this.props;
-
         searchTextChanged(event.target.value);
     };
 

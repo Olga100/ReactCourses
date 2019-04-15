@@ -3,7 +3,6 @@ import axios from 'axios';
 export const RECEIVE_MOVIES = 'RECEIVE_MOVIES';
 
 export function receiveMovies(movies) {
-    console.log(movies)
     return {
         type: RECEIVE_MOVIES,
         movies
@@ -41,7 +40,6 @@ export function sortBy(field) {
         field
     }
 }
-
 
 export const SEARCH_BY = 'SEARCH_BY';
 
