@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match snapshot of Header 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="header"
+  >
+    <span
+      className="netflex"
+    >
+      netflexroulette
+    </span>
+    <span
+      className="titleFind"
+    >
+      FIND YOUR MOVIE
+    </span>
+    <div
+      className="inputContainer"
+    >
+      <input
+        className="searchMovie"
+        onChange={[Function]}
+        placeholder="search your movie"
+      />
+    </div>
+    <div
+      className="filterContainer"
+    >
+      <div
+        className="filterOptionsContainer"
+      >
+        <span
+          className="searchTitle"
+        >
+          SEARCH BY
+        </span>
+        <button
+          className="activeButton"
+          id="title"
+          onClick={[Function]}
+          type="button"
+        >
+          TITLE
+        </button>
+        <button
+          className={null}
+          id="genre"
+          onClick={[Function]}
+          type="button"
+        >
+          GENRE
+        </button>
+      </div>
+      <button
+        className="search"
+      >
+        SEARCH
+      </button>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Header should match snapshot of Header 2`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="header"
+  >
+    <span
+      className="netflex"
+    >
+      netflexroulette
+    </span>
+    <span
+      className="titleFind"
+    >
+      FIND YOUR MOVIE
+    </span>
+    <div
+      className="inputContainer"
+    >
+      <input
+        className="searchMovie"
+        onChange={[Function]}
+        placeholder="search your movie"
+      />
+    </div>
+    <div
+      className="filterContainer"
+    >
+      <div
+        className="filterOptionsContainer"
+      >
+        <span
+          className="searchTitle"
+        >
+          SEARCH BY
+        </span>
+        <button
+          className={null}
+          id="title"
+          onClick={[Function]}
+          type="button"
+        >
+          TITLE
+        </button>
+        <button
+          className={null}
+          id="genre"
+          onClick={[Function]}
+          type="button"
+        >
+          GENRE
+        </button>
+      </div>
+      <button
+        className="search"
+      >
+        SEARCH
+      </button>
+    </div>
+  </div>
+</form>
+`;
