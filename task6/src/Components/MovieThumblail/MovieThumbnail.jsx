@@ -15,8 +15,10 @@ class MovieThumbnail extends Component {
 
     render() {
         const {poster_path, title, release_date, genres} = this.props.movie;
+        const onMovieSelected = this.props.onMovieSelected;
+
         return (
-            <div className="movieThumbnailContainer">
+            <div className="movieThumbnailContainer" onClick={() => onMovieSelected(this.props.movie)}>
                 <div className="poster"><img src={poster_path} alt="poster"/></div>
                 <div className="title-year">
                     <div> {title}</div>
@@ -30,7 +32,8 @@ class MovieThumbnail extends Component {
 }
 
 MovieThumbnail.propTypes = {
-    movie: PropTypes.object.isRequired
+    movie: PropTypes.object.isRequired,
+    onMovieSelected: PropTypes.func
 };
 
 export default MovieThumbnail;

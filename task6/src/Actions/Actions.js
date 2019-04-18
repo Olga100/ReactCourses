@@ -37,3 +37,10 @@ export function searchText(text) {
         text
     }
 }
+
+export function  selectedMovie(movie) {
+    return {
+        type: 'SELECTED_MOVIE',
+        movie
+    }
+}

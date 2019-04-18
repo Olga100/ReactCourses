@@ -1,14 +1,16 @@
-import {RECEIVE_MOVIES, SORT_BY, SEARCH_BY, SEARCH_TEXT} from'../constants';
+import {RECEIVE_MOVIES, SORT_BY, SEARCH_BY, SEARCH_TEXT,  SELECTED_MOVIE} from'../constants';
 
 const initialState = {
     movies: [],
     sortBy: 'release_date',
     searchBy: 'title',
-    searchText: ""
+    searchText: "",
+    movie: {}
 };
 
 export default function mainReducer(state = initialState, action) {
     const { type } = action;
+    console.log(action)
 
     switch (type) {
         case RECEIVE_MOVIES:
@@ -19,6 +21,8 @@ export default function mainReducer(state = initialState, action) {
             return {...state, searchBy: action.field};
         case SEARCH_TEXT:
             return {...state, searchText: action.text};
+        case SELECTED_MOVIE:
+            return {...state, movie: action.movie};
         default:
             return state;
     }

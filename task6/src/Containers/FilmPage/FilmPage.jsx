@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 import ErrorBoundary from '../../Components/ErrorBoundary';
 import MovieDetails from '../../Components/MovieDetails/MovieDetails';
@@ -6,16 +7,18 @@ import LineResultGenges from '../../Components/LineResultGenres/LineResultGenres
 import MovieListFilmPage from '../../Components/MovieListFilmPage/MovieListFilmPage'
 import './FilmPage.scss';
 
+import getMovies from '../../api';
 
 
 
-class FilmPage extends Component {
+
+class FilmPageView extends Component {
     constructor(props) {
         super(props);
-
     }
 
     componentDidMount() {
+
 
     }
 
@@ -23,12 +26,13 @@ class FilmPage extends Component {
 
 
     render() {
+        const movie = this.props.movie;
 
         return (
             <div className="App">
                 <ErrorBoundary>
                     <div className="filmPageContainer">
-                        <MovieDetails />
+                        <MovieDetails movie={movie}/>
                         <LineResultGenges/>
                         <MovieListFilmPage/>
                     </div>
@@ -38,5 +42,10 @@ class FilmPage extends Component {
         );
     }
 }
+const mapStateToProps =  (state) => ({
+    movie: state.movie,
+});
+
+const FilmPage = connect(mapStateToProps)(FilmPageView);
 
 export default FilmPage;

@@ -15,11 +15,11 @@ class SearchPageView extends Component {
 
     }
 
-    componentDidMount() {
+    /*componentDidMount() {
         const { loadMovies, query } = this.props;
 
         loadMovies(query);
-    }
+    }*/
 
 
     handleSortByChanged = (sortBy) => {
