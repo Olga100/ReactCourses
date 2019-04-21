@@ -27,7 +27,10 @@ export function getMovies(search, searchBy, sortBy) {
 
 export function getMovie(id) {
     return axios.get('https://reactjs-cdp.herokuapp.com/movies/' + id)
-        .then(res => { return res.data });
+        .then(res => { return res.data })
+        .catch(err => {
+            console.log(err);
+        });
 }
 
 export function getMoviesByGenres(genres) {

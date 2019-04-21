@@ -6,48 +6,42 @@ import {createStore, applyMiddleware} from 'redux';
 import mainReducer from '../../Reducers/mainReducer';
 import thunkMiddleware from 'redux-thunk';
 import expect from 'expect';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {StaticRouter, Route, Link} from 'react-router-dom';
 import MovieDetailsPage from './MovieDetailsPage';
 import renderer from 'react-test-renderer';
-
-const initialState = {
-    movies: [],
-    sortBy: 'release_date',
-    searchBy: 'title',
-    searchText: ""
-};
 
 describe ('MovieDetailsPage', () => {
 
     it('should match snapshot with data', () => {
 
-        const mock = new MockAdapter(axios);
-        mock.onGet('https://reactjs-cdp.herokuapp.com/movies?').reply(200, {data: []});
-        mock.onGet('https://reactjs-cdp.herokuapp.com/movies?searchBy=title&sortBy=release_date&sortOrder=desc').reply(200, {data: []});
-
-        const state = {
-            movies: [],
-            sortBy: 'release_date',
-            searchBy: 'title',
-            searchText: ""
+        var movie = {
+            "id": 123,
+            "title": "Star war",
+            "poster_path": "https:\/\/images-na.ssl-images-amazon.com\/images\/M\/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SY500_CR0,0,336,500_AL_.jpg",
+            "genres": [
+                "Crime",
+                "Drama"
+            ],
+            "release_date": "2011-10-05"
         };
 
-        const store = createStore(mainReducer, initialState, applyMiddleware(thunkMiddleware));
+        const mock = new MockAdapter(axios);
+        mock.onGet('https://reactjs-cdp.herokuapp.com/movies?searchBy=genres&filter=' + movie.genres.join(',')).reply(200, {data: [movie]});
+        mock.onGet('https://reactjs-cdp.herokuapp.com/movies/' + movie.id).reply(200, movie);
+
+        const store = createStore(mainReducer, {}, applyMiddleware(thunkMiddleware));
 
         const component = renderer.create(
-            <Provider store={store}>
-                <Router>
-                    <MovieDetailsPage />
-                </Router>
-            </Provider>
+            <StaticRouter location={"/film/" + movie.id}>
+                <Provider store={store}>
+                    <Route path="/film/:id" component={MovieDetailsPage} />
+                </Provider>
+            </StaticRouter>
         );
-        //component.setProps({params: { id: '299536'}})
-        component.instance().props.match.params.id = '299537';
+
         const json = component.toJSON();
 
         expect(json).toMatchSnapshot();
     });
 });
-//this.props.location.pathname       wrapper.setProps({location: { pathname: 'testUrl2'}})
-//this.props.match.params.id
 

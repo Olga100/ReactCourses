@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.43% </span>
+        <span class="strong">71.43% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/14</span>
+        <span class='fraction'>10/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">23.08% </span>
+        <span class="strong">69.23% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/13</span>
+        <span class='fraction'>9/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.43% </span>
+        <span class="strong">71.43% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/14</span>
+        <span class='fraction'>10/14</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -123,7 +123,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,25 +138,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,15 +186,15 @@ export function <span class="fstat-no" title="function not covered" >receiveMovi
     }
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >receiveMovieDetails(</span>movieDetails) {
-<span class="cstat-no" title="statement not covered" >    return {</span>
+export function receiveMovieDetails(movieDetails) {
+    return {
         type: RECEIVE_MOVIE_DETAILS,
         movieDetails
     }
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >receiveRelatedMovies(</span>movies) {
-<span class="cstat-no" title="statement not covered" >    return {</span>
+export function receiveRelatedMovies(movies) {
+    return {
         type: RECEIVE_RELATED_MOVIES,
         movies
     }
@@ -207,13 +207,13 @@ export function <span class="fstat-no" title="function not covered" >loadMovies(
     }
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >loadMovieDetails(</span>movieId) {
-<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >fu</span>nction (dispatch) {</span>
-<span class="cstat-no" title="statement not covered" >        return getMovie(movieId)</span>
-            .then(<span class="fstat-no" title="function not covered" >mo</span>vieDetails =&gt; {
-<span class="cstat-no" title="statement not covered" >                dispatch(receiveMovieDetails(movieDetails));</span>
-<span class="cstat-no" title="statement not covered" >                getMoviesByGenres(movieDetails.genres)</span>
-                    .then(<span class="fstat-no" title="function not covered" >mo</span>vies =&gt; <span class="cstat-no" title="statement not covered" >dispatch(receiveRelatedMovies(movies)))</span>;
+export function loadMovieDetails(movieId) {
+    return function (dispatch) {
+        return getMovie(movieId)
+            .then(movieDetails =&gt; {
+                dispatch(receiveMovieDetails(movieDetails));
+                getMoviesByGenres(movieDetails.genres)
+                    .then(movies =&gt; dispatch(receiveRelatedMovies(movies)));
             });
     }
 }
@@ -244,7 +244,7 @@ export function searchText(text) {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Apr 21 2019 15:01:22 GMT+0300 (GMT+03:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Apr 21 2019 19:51:06 GMT+0300 (GMT+03:00)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>
