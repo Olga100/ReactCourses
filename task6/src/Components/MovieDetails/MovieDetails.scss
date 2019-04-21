@@ -42,7 +42,29 @@ $netflexColor: #c15d69;
       width: auto;
     }
     .movieInformation {
-       margin-left: 70px;
+      display: flex;
+      flex-direction: column;
+      width: 600px;
+      margin-left: 70px;
+
+
+      .titleMovieContanier {
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color:$netflexColor;
+      }
+      .releaseContinues {
+        margin-top: 15px;
+        margin-bottom: 40px;
+        font-weight: bold;
+
+        .filmTime {
+          margin-right: 20px;
+        }
+      }
+
+
   }
   }
 

@@ -4,21 +4,24 @@
   width: 240px;
   height: 420px;
   margin: 20px; }
-  .movieThumbnailContainer .poster img {
-    width: 240px;
-    height: 330px; }
-  .movieThumbnailContainer .title-year {
-    display: flex;
-    justify-content: space-between; }
-    .movieThumbnailContainer .title-year span {
+  .movieThumbnailContainer .link-wrapper {
+    text-decoration: none;
+    color: inherit; }
+    .movieThumbnailContainer .link-wrapper .poster img {
+      width: 240px;
+      height: 330px; }
+    .movieThumbnailContainer .link-wrapper .title-year {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 28px;
-      width: 48px;
-      border: 1px solid darkgray; }
-  .movieThumbnailContainer .genres {
-    margin-right: 5px;
-    font-size: 14px; }
+      justify-content: space-between; }
+      .movieThumbnailContainer .link-wrapper .title-year span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 28px;
+        width: 48px;
+        border: 1px solid darkgray; }
+    .movieThumbnailContainer .link-wrapper .genres {
+      margin-right: 5px;
+      font-size: 14px; }
 
 /*# sourceMappingURL=MovieThumbnail.css.map */

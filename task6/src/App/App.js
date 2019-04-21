@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 import Footer from '../Components/Footer/Footer';
 import SearchPage from '../Containers/SearchPage/SearchPage';
-import FilmPage from '../Containers/FilmPage/FilmPage';
+import MovieDetailsPage from '../Containers/MovieDetailsPage/MovieDetailsPage';
 import NotFoundPage from '../Components/NotFoundPage/NotFounPage';
 import {mainReducer} from '../Reducers/mainReducer';
 import './App.scss';
@@ -22,7 +22,8 @@ class App extends Component {
 
                             <Switch>
                                 <Route exact path="/" component={SearchPage}/>
-                                <Route path="/film" component={FilmPage}/>
+                                <Route path="/search/:text" component={SearchPage}/>
+                                <Route path="/film/:id" component={MovieDetailsPage}/>
                                 <Route path="*" component={NotFoundPage}/>
                             </Switch>
                             <Footer/>
@@ -36,6 +37,3 @@ class App extends Component {
 }
 
 export default App;
-
-{/*
-<Link to="/film">film</Link>*/}

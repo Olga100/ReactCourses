@@ -1,9 +1,15 @@
-import mainReducer from '../../Reducers/mainReducer';
+import React from 'react';
+import {Provider} from 'react-redux'
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter'
+import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import expect from 'expect';
+import {mount} from 'enzyme';
+import mainReducer from '../../Reducers/mainReducer';
 import SearchPage from './SearchPage';
-
-import movies  from '../../mocks/movies.json';
+import renderer from 'react-test-renderer';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 const initialState = {
     movies: [],
@@ -31,7 +37,9 @@ describe ('SearchPage', () => {
 
         const component = renderer.create(
             <Provider store={store}>
-                <SearchPage />
+                <Router>
+                    <SearchPage />
+                </Router>
             </Provider>
         );
         const json = component.toJSON();
@@ -69,7 +77,9 @@ describe ('SearchPage', () => {
 
         const content = mount(
             <Provider store={store}>
-                <SearchPage />
+                <Router>
+                    <SearchPage />
+                </Router>
             </Provider>
         );
 
@@ -77,7 +87,7 @@ describe ('SearchPage', () => {
         const form = content.find('form').at(0);
         form.simulate('submit');
 
-        setImmediate(() => {
+        setTimeout(() => {
             expect(store.getState()).toEqual(expectedStore);
         });
     });

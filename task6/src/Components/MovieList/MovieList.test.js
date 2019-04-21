@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import MovieList  from './MovieList';
 
@@ -27,7 +28,9 @@ describe('<MovieList/>', () => {
             ];
 
         const component = renderer.create(
-            <MovieList movies={movies}/>
+            <Router>
+                <MovieList movies={movies}/>
+            </Router>
         );
 
         const json = component.toJSON();
@@ -41,7 +44,9 @@ describe('<MovieList/>', () => {
             [];
 
         const component = renderer.create(
-            <MovieList movies={movies}/>
+            <Router>
+                <MovieList movies={movies}/>
+            </Router>
         );
 
         const json = component.toJSON();

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import axios from 'axios';
 
-function getMovies(search, searchBy, sortBy) {
+export function getMovies(search, searchBy, sortBy) {
     let params = [];
 
     if (search) {
@@ -25,4 +25,12 @@ function getMovies(search, searchBy, sortBy) {
             });
 }
 
-export default getMovies;
+export function getMovie(id) {
+    return axios.get('https://reactjs-cdp.herokuapp.com/movies/' + id)
+        .then(res => { return res.data });
+}
+
+export function getMoviesByGenres(genres) {
+    return axios.get('https://reactjs-cdp.herokuapp.com/movies?searchBy=genres&filter=' + genres)
+        .then(res => { return res.data.data });
+}

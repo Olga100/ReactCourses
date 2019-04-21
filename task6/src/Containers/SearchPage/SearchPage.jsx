@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import Header from '../../Components/Header/Header';
 import MovieList from '../../Components/MovieList/MovieList';
@@ -10,17 +11,18 @@ import { getQuery } from '../../Reducers/mainReducer';
 
 
 class SearchPageView extends Component {
-    constructor(props) {
-        super(props);
+    componentDidUpdate(prevProps) {
+        if (this.props.location !== prevProps.location) {
+            const searchText = this.props.match.params.text;
 
+            if (searchText) {
+                const {searchTextChanged, loadMovies} = this.props;
+
+                searchTextChanged(searchText);
+                setTimeout(() => loadMovies(this.props.query));
+            }
+        }
     }
-
-    /*componentDidMount() {
-        const { loadMovies, query } = this.props;
-
-        loadMovies(query);
-    }*/
-
 
     handleSortByChanged = (sortBy) => {
         const { sortByChanged } = this.props;
@@ -31,9 +33,7 @@ class SearchPageView extends Component {
 
 
     handleSearch = () => {
-        const { loadMovies, query } = this.props;
-
-        loadMovies(query);
+        this.props.history.push('/search/' + encodeURI(this.props.searchText));
     };
 
     render() {
@@ -80,6 +80,6 @@ const mapDispatchToProps = {
     searchTextChanged: searchText
 };
 
-const SearchPage = connect(mapStateToProps, mapDispatchToProps)(SearchPageView);
+const SearchPage = connect(mapStateToProps, mapDispatchToProps)(withRouter(SearchPageView));
 
 export default SearchPage;

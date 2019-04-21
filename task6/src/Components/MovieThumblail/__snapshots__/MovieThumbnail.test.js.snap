@@ -4,31 +4,37 @@ exports[`MovieThumbnail should match snapshot with data 1`] = `
 <div
   className="movieThumbnailContainer"
 >
-  <div
-    className="poster"
+  <a
+    className="link-wrapper"
+    href="/film/undefined"
+    onClick={[Function]}
   >
-    <img
-      alt="poster"
-      src="http://www.theamazingpics.com/wp-content/uploads/2014/05/Amazing-Picture-of-A-Japanese-Garden-in-Portland-USA.jpg"
-    />
-  </div>
-  <div
-    className="title-year"
-  >
-    <div>
-       
-      title
-    </div>
-    <span>
-      2011
-    </span>
-  </div>
-  <div>
-    <span
-      className="genres"
+    <div
+      className="poster"
     >
-      horror
-    </span>
-  </div>
+      <img
+        alt="poster"
+        src="http://www.theamazingpics.com/wp-content/uploads/2014/05/Amazing-Picture-of-A-Japanese-Garden-in-Portland-USA.jpg"
+      />
+    </div>
+    <div
+      className="title-year"
+    >
+      <div>
+         
+        title
+      </div>
+      <span>
+        2011
+      </span>
+    </div>
+    <div>
+      <span
+        className="genres"
+      >
+        horror
+      </span>
+    </div>
+  </a>
 </div>
 `;

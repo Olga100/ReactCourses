@@ -6,26 +6,17 @@ import './MovieDetails.scss';
 
 class MovieDetails extends Component {
 
-
-    /*renderGenres(arr) {
-     return arr.map((item) => (<span className="genres" key={item}>{item}</span>));
-     }*/
-
-    renderPoster(movie) {
-        if (movie) {
-            return movie.poster_path;
-        }
-    }
-    getDesctiption(movie) {
-        if(movie){
-            return movie.tagline;
-        }
+    getYear(isoDate) {
+        return new Date(isoDate).getFullYear();
     }
 
+    getRunTime(runtime) {
+        if(runtime) {
+            return runtime + " " + "min";
+        }
+    }
     render() {
-        //const {poster_path, title, release_date, genres} = this.props.movie;
-        const movie = this.props.movie;
-        console.log(movie);
+        const {poster_path, title, tagline, release_date, runtime, overview} = this.props.movie;
 
         return (
             <div className="movieDetailsContainer">
@@ -37,20 +28,26 @@ class MovieDetails extends Component {
 
                 <div className="movieContainer">
                     <div className="moviePosterWrapper">
-                        <img className="moviePoster" src={this.renderPoster(movie)} alt="poster"/>
-                    </div>
-                    <div className="movieInformation">
-                        { this.getDesctiption(movie) }
+                        <img className="moviePoster" src={poster_path} alt="poster"/>
                     </div>
 
+                    <div className="movieInformation">
+                        <div className="titleMovieContanier"> {title} </div>
+                        <div className="titleMovieTagline"> {tagline} </div>
+                        <div className="releaseContinues">
+                            <span className="filmTime">{this.getYear(release_date)}</span>
+                            <span className="filmRunTime">{this.getRunTime(runtime)} </span>
+                        </div>
+                        <div className="description">{overview}</div>
+                    </div>
                 </div>
             </div>
         )
     }
 }
 
-/*MovieThumbnail.propTypes = {
+MovieDetails.propTypes = {
  movie: PropTypes.object.isRequired
- };*/
+ };
 
 export default MovieDetails;

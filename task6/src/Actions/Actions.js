@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-import {RECEIVE_MOVIES, SORT_BY, SEARCH_BY, SEARCH_TEXT} from'../constants';
+import {RECEIVE_MOVIES, RECEIVE_MOVIE_DETAILS, RECEIVE_RELATED_MOVIES, SORT_BY, SEARCH_BY, SEARCH_TEXT} from '../constants';
+import {getMovie, getMoviesByGenres} from '../api.js';
 
 
 export function receiveMovies(movies) {
@@ -10,10 +10,35 @@ export function receiveMovies(movies) {
     }
 }
 
+export function receiveMovieDetails(movieDetails) {
+    return {
+        type: RECEIVE_MOVIE_DETAILS,
+        movieDetails
+    }
+}
+
+export function receiveRelatedMovies(movies) {
+    return {
+        type: RECEIVE_RELATED_MOVIES,
+        movies
+    }
+}
+
 export function loadMovies(request) {
     return function (dispatch) {
         return axios.get(request)
             .then(response => dispatch(receiveMovies(response.data.data)));
+    }
+}
+
+export function loadMovieDetails(movieId) {
+    return function (dispatch) {
+        return getMovie(movieId)
+            .then(movieDetails => {
+                dispatch(receiveMovieDetails(movieDetails));
+                getMoviesByGenres(movieDetails.genres)
+                    .then(movies => dispatch(receiveRelatedMovies(movies)));
+            });
     }
 }
 
@@ -35,12 +60,5 @@ export function searchText(text) {
     return {
         type: SEARCH_TEXT,
         text
-    }
-}
-
-export function  selectedMovie(movie) {
-    return {
-        type: 'SELECTED_MOVIE',
-        movie
     }
 }
