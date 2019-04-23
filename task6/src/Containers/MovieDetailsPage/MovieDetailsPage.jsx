@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import ErrorBoundary from '../../Components/ErrorBoundary';
@@ -13,6 +14,12 @@ class MovieDetailsPageView extends Component {
 
     componentDidMount() {
         this.props.loadMovieDetails(this.props.match.params.id);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.location !== prevProps.location) {
+            this.props.loadMovieDetails(this.props.match.params.id);
+        }
     }
 
     render() {
@@ -46,6 +53,6 @@ const mapDispatchToProps = {
     loadMovieDetails
 };
 
-const MovieDetailsPage = connect(mapStateToProps, mapDispatchToProps)(MovieDetailsPageView);
+const MovieDetailsPage = withRouter(connect(mapStateToProps, mapDispatchToProps)(MovieDetailsPageView));
 
 export default MovieDetailsPage;

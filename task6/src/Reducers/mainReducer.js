@@ -42,5 +42,5 @@ export const getQuery = state => {
         params.push(`sortBy=${sortBy}`);
         params.push('sortOrder=desc');
     }
-    return 'https://reactjs-cdp.herokuapp.com/movies?' + params.join('&');
+    return params.join('&');
 };

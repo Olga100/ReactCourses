@@ -24,9 +24,9 @@ export function receiveRelatedMovies(movies) {
     }
 }
 
-export function loadMovies(request) {
+export function loadMovies(query) {
     return function (dispatch) {
-        return axios.get(request)
+        return axios.get("https://reactjs-cdp.herokuapp.com/movies?" + query)
             .then(response => dispatch(receiveMovies(response.data.data)));
     }
 }
@@ -45,20 +45,20 @@ export function loadMovieDetails(movieId) {
 export function sortBy(field) {
     return {
         type: SORT_BY,
-        field
+        field: field ? field : "release_date"
     }
 }
 
 export function searchBy(field) {
     return {
         type: SEARCH_BY,
-        field
+        field: field ? field : "title"
     }
 }
 
 export function searchText(text) {
     return {
         type: SEARCH_TEXT,
-        text
+        text: text ? text : ""
     }
 }

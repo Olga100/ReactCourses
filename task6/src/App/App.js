@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux'
-import {PersistGate} from 'redux-persist/integration/react';
-import {store, persistor} from '../configureStore';
+import {store} from '../configureStore';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 import Footer from '../Components/Footer/Footer';
@@ -14,24 +13,19 @@ import './App.scss';
 class App extends Component {
     render() {
         return (
-            <Provider store={store}>
-                <Router>
-                    <PersistGate loading={null} persistor={persistor}>
-
-                        <div className="App">
-
-                            <Switch>
-                                <Route exact path="/" component={SearchPage}/>
-                                <Route path="/search/:text" component={SearchPage}/>
-                                <Route path="/film/:id" component={MovieDetailsPage}/>
-                                <Route path="*" component={NotFoundPage}/>
-                            </Switch>
-                            <Footer/>
-                        </div>
-
-                    </PersistGate>
-                </Router>
-            </Provider>
+            <Router>
+                <Provider store={store}>
+                    <div className="App">
+                        <Switch>
+                            <Route exact path="/" component={SearchPage}/>
+                            <Route path="/search" component={SearchPage}/>
+                            <Route path="/film/:id" component={MovieDetailsPage}/>
+                            <Route path="*" component={NotFoundPage}/>
+                        </Switch>
+                        <Footer/>
+                    </div>
+                </Provider>
+            </Router>
         );
     }
 }

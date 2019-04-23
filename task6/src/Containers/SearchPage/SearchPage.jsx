@@ -9,18 +9,14 @@ import LineResultMovieList from '../../Components/LineResultMovieList/LineResult
 import { loadMovies, sortBy, searchBy, searchText } from '../../Actions/Actions';
 import { getQuery } from '../../Reducers/mainReducer';
 
-
 class SearchPageView extends Component {
+    componentDidMount() {
+        this.refreshSearch();
+    }
+
     componentDidUpdate(prevProps) {
         if (this.props.location !== prevProps.location) {
-            const searchText = this.props.match.params.text;
-
-            if (searchText) {
-                const {searchTextChanged, loadMovies} = this.props;
-
-                searchTextChanged(searchText);
-                setTimeout(() => loadMovies(this.props.query));
-            }
+            this.refreshSearch();
         }
     }
 
@@ -33,7 +29,18 @@ class SearchPageView extends Component {
 
 
     handleSearch = () => {
-        this.props.history.push('/search/' + encodeURI(this.props.searchText));
+        this.props.history.push('/search?' + this.props.query);
+    };
+
+    refreshSearch = () => {
+        const {searchTextChanged, searchByChanged, sortByChanged, loadMovies} = this.props;
+        const params = new URLSearchParams(this.props.location.search);
+
+        searchTextChanged(params.get("search"));
+        searchByChanged(params.get("searchBy"));
+        sortByChanged(params.get("sortBy"));
+
+        setTimeout(() => loadMovies(this.props.query));
     };
 
     render() {
@@ -80,6 +87,6 @@ const mapDispatchToProps = {
     searchTextChanged: searchText
 };
 
-const SearchPage = connect(mapStateToProps, mapDispatchToProps)(withRouter(SearchPageView));
+const SearchPage = withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchPageView));
 
 export default SearchPage;
