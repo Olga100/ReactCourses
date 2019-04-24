@@ -3,6 +3,14 @@ import thunkMiddleware from 'redux-thunk';
 
 import mainReducer from './Reducers/mainReducer';
 
-const store = createStore(mainReducer, compose(applyMiddleware(thunkMiddleware) ));
+let devTools = f => f;
+
+if (process.browser &&
+    process.env.NODE_ENV !== 'production' &&
+    window.__REDUX_DEVTOOLS_EXTENSION__) {
+    devTools = window.__REDUX_DEVTOOLS_EXTENSION__();
+}
+
+const store = createStore(mainReducer, compose(applyMiddleware(thunkMiddleware), devTools));
 
 export { store };
