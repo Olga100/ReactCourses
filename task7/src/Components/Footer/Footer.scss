@@ -1,0 +1,11 @@
+$netflexColor: #c15d69;
+
+.footer {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-left: 30px;
+  font-weight: 700;
+  color: $netflexColor;
+  background-color: #414141;
+}

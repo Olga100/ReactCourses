@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LineResultMovieList should match snapshot with data 1`] = `
+<div
+  className="lineResultContainer"
+>
+  <span>
+    3
+     movies found
+  </span>
+  <span
+    className="sortByWrapper"
+  >
+    <span>
+      Sort by
+    </span>
+    <span
+      className="active"
+      id="sortByRelease"
+      onClick={[Function]}
+    >
+      release date
+    </span>
+    <span
+      className={null}
+      id="sortByRating"
+      onClick={[Function]}
+    >
+      rating
+    </span>
+  </span>
+</div>
+`;
+
+exports[`LineResultMovieList should match snapshot without data 1`] = `null`;

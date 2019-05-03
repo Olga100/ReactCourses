@@ -1,0 +1,48 @@
+.movieDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  padding: 20px 50px;
+  background-color: #333736;
+  color: white; }
+  .movieDetailsContainer .movieDetailsContainer-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; }
+    .movieDetailsContainer .movieDetailsContainer-header .neflixroulette {
+      color: #c15d69; }
+    .movieDetailsContainer .movieDetailsContainer-header .redirect {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      width: 110px;
+      font-weight: bold;
+      background-color: white;
+      color: #c15d69;
+      text-decoration: none;
+      border: none; }
+  .movieDetailsContainer .movieContainer {
+    display: flex;
+    height: 280px; }
+    .movieDetailsContainer .movieContainer img.moviePoster {
+      height: 260px;
+      width: auto; }
+    .movieDetailsContainer .movieContainer .movieInformation {
+      display: flex;
+      flex-direction: column;
+      width: 600px;
+      margin-left: 70px; }
+      .movieDetailsContainer .movieContainer .movieInformation .titleMovieContanier {
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #c15d69; }
+      .movieDetailsContainer .movieContainer .movieInformation .releaseContinues {
+        margin-top: 15px;
+        margin-bottom: 40px;
+        font-weight: bold; }
+        .movieDetailsContainer .movieContainer .movieInformation .releaseContinues .filmTime {
+          margin-right: 20px; }
+
+/*# sourceMappingURL=MovieDetails.css.map */
