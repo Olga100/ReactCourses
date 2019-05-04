@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 import './MovieDetails.scss';
@@ -23,7 +23,7 @@ class MovieDetails extends Component {
 
                 <div className="movieDetailsContainer-header">
                     <span className="neflixroulette">netflixroulette</span>
-                    <Link to="/" className="redirect"> SEARCH</Link>
+                    <Link href="/"><a className="redirect">SEARCH</a></Link>
                 </div>
 
                 <div className="movieContainer">

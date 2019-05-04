@@ -4,13 +4,12 @@ import Router, { withRouter } from 'next/router';
 
 import Header from '../Components/Header/Header';
 import MovieList from '../Components/MovieList/MovieList';
-import ErrorBoundary from '../Components/ErrorBoundary';
 import LineResultMovieList from '../Components/LineResultMovieList/LineResultMovieList';
 import { loadMovies, sortBy, searchBy, searchText, receiveMovies } from '../Actions/Actions';
 import { getQuery } from '../Reducers/mainReducer';
 
 class SearchPageView extends Component {
-    static async getInitialProps({store, query}) {
+    static async getInitialProps({store, query}) {           //только засунуть в стор то, что нам надо
 
         store.dispatch(searchText(query.search));
         store.dispatch(searchBy(query.searchBy));
@@ -38,22 +37,22 @@ class SearchPageView extends Component {
 
         return (
             <div className="App">
-                    <Header
-                        searchText={searchText}
-                        searchBy={searchBy}
-                        searchTextChanged={searchTextChanged}
-                        searchByChanged={searchByChanged}
-                        search={this.handleSearch}
-                    />
+                <Header
+                    searchText={searchText}
+                    searchBy={searchBy}
+                    searchTextChanged={searchTextChanged}
+                    searchByChanged={searchByChanged}
+                    search={this.handleSearch}
+                />
 
-                    <LineResultMovieList
-                        moviesCount={movies.length}
-                        sortBy={sortBy}
-                        sortByChanged={this.handleSortByChanged}
-                    />
-                    <MovieList
-                        movies={movies}
-                    />
+                <LineResultMovieList
+                    moviesCount={movies.length}
+                    sortBy={sortBy}
+                    sortByChanged={this.handleSortByChanged}
+                />
+                <MovieList
+                    movies={movies}
+                />
             </div>
         );
     }
@@ -76,4 +75,3 @@ const mapDispatchToProps = {
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchPageView));
-

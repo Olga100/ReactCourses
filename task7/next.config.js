@@ -19,5 +19,5 @@ module.exports = withSass({
     webpack(config) {
         HACK_removeMinimizeOptionFromCssLoaders(config);
         return config;
-    },
+    }
 });

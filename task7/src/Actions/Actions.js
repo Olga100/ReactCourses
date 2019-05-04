@@ -36,7 +36,7 @@ export function loadMovieDetails(movieId) {
         return getMovie(movieId)
             .then(movieDetails => {
                 dispatch(receiveMovieDetails(movieDetails));
-                getMoviesByGenres(movieDetails.genres)
+                return getMoviesByGenres(movieDetails.genres)
                     .then(movies => dispatch(receiveRelatedMovies(movies)));
             });
     }
