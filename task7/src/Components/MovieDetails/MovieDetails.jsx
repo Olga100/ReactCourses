@@ -23,7 +23,7 @@ class MovieDetails extends Component {
 
                 <div className="movieDetailsContainer-header">
                     <span className="neflixroulette">netflixroulette</span>
-                    <Link href="/"><a className="redirect">SEARCH</a></Link>
+                    <Link href="/search" as="/"><a className="redirect">SEARCH</a></Link>
                 </div>
 
                 <div className="movieContainer">

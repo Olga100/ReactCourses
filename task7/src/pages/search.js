@@ -9,7 +9,7 @@ import { loadMovies, sortBy, searchBy, searchText, receiveMovies } from '../Acti
 import { getQuery } from '../Reducers/mainReducer';
 
 class SearchPageView extends Component {
-    static async getInitialProps({store, query}) {           //только засунуть в стор то, что нам надо
+    static async getInitialProps({store, query}) {
 
         store.dispatch(searchText(query.search));
         store.dispatch(searchBy(query.searchBy));

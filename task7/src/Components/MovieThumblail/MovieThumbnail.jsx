@@ -20,7 +20,7 @@ class MovieThumbnail extends Component {
 
         return (
             <div className="movieThumbnailContainer">
-                <Link href={"/film/" + this.props.movie.id}>
+                <Link href={{pathname: "/film",  query: {id: this.props.movie.id}}} as={"/film/" + this.props.movie.id}>
                     <a className="link-wrapper">
                         <div className="poster"><img src={poster_path} alt="poster"/></div>
                         <div className="title-year">
