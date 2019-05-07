@@ -6,6 +6,7 @@ import Router, { withRouter } from 'next/router';
 import MovieDetails from '../Components/MovieDetails/MovieDetails';
 import MovieList from '../Components/MovieList/MovieList';
 import LineResultGenres from '../Components/LineResultGenres/LineResultGenres';
+import Footer from '../Components/Footer/Footer';
 
 import { loadMovieDetails } from '../Actions/Actions';
 
@@ -27,6 +28,7 @@ class MovieDetailsPageView extends Component {
                         <MovieDetails movie={movieDetails}/>
                         <LineResultGenres genres={movieDetails.genres}/>
                         <MovieList movies={relatedMovies} />
+                        <Footer />
                     </div>
                 </div>
             );

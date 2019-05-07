@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Router, { withRouter } from 'next/router';
 
 import Header from '../Components/Header/Header';
+import Footer from '../Components/Footer/Footer';
 import MovieList from '../Components/MovieList/MovieList';
 import LineResultMovieList from '../Components/LineResultMovieList/LineResultMovieList';
 import { loadMovies, sortBy, searchBy, searchText, receiveMovies } from '../Actions/Actions';
@@ -53,6 +54,7 @@ class SearchPageView extends Component {
                 <MovieList
                     movies={movies}
                 />
+                <Footer />
             </div>
         );
     }
