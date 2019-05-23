@@ -15,7 +15,7 @@ const movies = [{
     "release_date": "2012-10-05"
 }];
 
-const SearchPageWith = {
+const searchPageWith = {
     movies: movies,
     sortBy: "rating",
     searchBy: "Star wars",
@@ -60,5 +60,7 @@ const TableComponent = ({ propDefinitions }) => {
 };
 
 storiesOf('SearchPage', module)
-   // .add('with discount', () => <SearchPageWith movies={movies} />);
-    .add('with info', withInfo({})(() => <SearchPageWith movies={movies} />));
+   .add('searchPageWith1', () => <SearchPage movies={searchPageWith} />)
+    .add('searchPageWith2', withInfo({})(() => <SearchPage movies={searchPageWith} />));
+
+
