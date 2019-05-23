@@ -2,9 +2,31 @@
 
 import React, { Component } from 'react';
 
-import './MovieList.scss';
+//import './MovieList.scss';
 import MovieThumbnail from './../../Components/MovieThumblail/MovieThumbnail';
 import LineResultGenres from "../LineResultGenres/LineResultGenres";
+import injectSheet from 'react-jss';
+
+const styles = {
+    mainContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '390px',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    movieListContainer: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        fontSize: '18px'
+    },
+
+    noFilms: {
+        fontSize: '45px'
+    }
+}
 
 type Props = {
     movies: Array<object>
@@ -28,17 +50,19 @@ class MovieList extends Component<Props> {
     };
 
     render() {
+
+        const {classes} = this.props;
         return (
-            <div className="mainContainer">
-                <div className="movieListContainer">
+            <div className={classes.mainContainer}>
+                <div className={classes.movieListContainer}>
                     { this.renderItems() }
                 </div>
             </div>)
     }
 }
 
-MovieLists.defaultProps = {
+MovieList.defaultProps = {
     movies: null
 };
 
-export default MovieList;
+export default injectSheet(styles)(MovieList);

@@ -8,7 +8,7 @@ import SearchPage from '../Containers/SearchPage/SearchPage';
 import MovieDetailsPage from '../Containers/MovieDetailsPage/MovieDetailsPage';
 import NotFoundPage from '../Components/NotFoundPage/NotFounPage';
 import {mainReducer} from '../Reducers/mainReducer';
-import './App.scss';
+/*import './App.scss';*/
 
 class App extends Component {
     render() {

@@ -2,45 +2,6 @@ $headerColor: #333736;
 $netflexColor: #c15d69;
 
 .header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 180px;
-  padding-left: 30px;
-  background-color: $headerColor;
-  color: white;
-
-  .netflex {
-    color: $netflexColor;
-  }
-
-  .titleFind {
-    font-family: Arial;
-    font-size: 12px;
-    font-weight: 600;
-    color: white;
-  }
-
-  .inputContainer {
-    width: 96%;
-    border-bottom: 2px solid $netflexColor;
-
-    .searchTitle {
-      font-size: 12px;
-      font-weight: 600;
-    }
-  }
-
-  .searchMovie {
-    width: 100%;
-    height: 40px;
-    padding-left: 20px;
-    box-sizing: border-box;
-    color: white;
-    background-color: black;
-    border: none;
-    outline: none;
-  }
 
   .filterContainer {
     width: 96%;
@@ -57,7 +18,6 @@ $netflexColor: #c15d69;
         padding-right: 20px;
         align-items: center;
         color: white;
-
       }
 
       button {
@@ -71,17 +31,8 @@ $netflexColor: #c15d69;
       }
 
       .activeButton {
-        background-color: $netflexColor;
+        background-color: #c15d69;
       }
-    }
-
-    .search {
-      height: 30px;
-      width: 170px;
-      color: white;
-      background-color: #f45364;
-      border: none;
-      outline: none;
     }
   }
 }

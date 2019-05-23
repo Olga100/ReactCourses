@@ -1,6 +1,21 @@
 import React from 'react';
-import './Footer.scss';
+import injectSheet from 'react-jss';
 
-const Footer = () => (<div className="footer">netflixroulette</div>);
 
-export default Footer;
+
+
+const styles =  {
+    footer: {
+        display: 'flex',
+        alignItems: 'center',
+        height: '40px',
+        paddingLeft: '30px',
+        fontWeight: 700,
+        color: '#c15d69',
+        background: '#414141'
+    }
+};
+
+const  Footer = ({classes}) => (<div className={classes.footer}> netflixroulette</div>);
+
+export default injectSheet(styles)(Footer)
