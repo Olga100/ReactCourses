@@ -8,3 +8,5 @@ npm run cypress
 npm run dev
 npm start
 
+npm run lint
+npm run flow

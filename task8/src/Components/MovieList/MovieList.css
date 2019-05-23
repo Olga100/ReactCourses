@@ -1,0 +1,16 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 390px;
+  align-items: center;
+  justify-content: center; }
+  .mainContainer .movieListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 18px; }
+  .mainContainer .noFilms {
+    font-size: 45px; }
+
+/*# sourceMappingURL=MovieList.css.map */

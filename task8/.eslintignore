@@ -1,0 +1,8 @@
+node_modules/
+dist/
+webpack.*
+/server
+cypress
+coverage
+**/*test.js
+_snapshots_

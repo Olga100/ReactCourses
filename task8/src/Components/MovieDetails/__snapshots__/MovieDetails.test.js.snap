@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetails should match snapshot with data 1`] = `
+<div
+  className="movieDetailsContainer"
+>
+  <div
+    className="movieDetailsContainer-header"
+  >
+    <span
+      className="neflixroulette"
+    >
+      netflixroulette
+    </span>
+    <a
+      className="redirect"
+      href="/"
+      onClick={[Function]}
+    >
+       SEARCH
+    </a>
+  </div>
+  <div
+    className="movieContainer"
+  >
+    <div
+      className="moviePosterWrapper"
+    >
+      <img
+        alt="poster"
+        className="moviePoster"
+        src="http://www.theamazingpics.com/wp-content/uploads/2014/05/Amazing-Picture-of-A-Japanese-Garden-in-Portland-USA.jpg"
+      />
+    </div>
+    <div
+      className="movieInformation"
+    >
+      <div
+        className="titleMovieContanier"
+      >
+         
+        title
+         
+      </div>
+      <div
+        className="titleMovieTagline"
+      >
+         
+        some text about movie
+         
+      </div>
+      <div
+        className="releaseContinues"
+      >
+        <span
+          className="filmTime"
+        >
+          2011
+        </span>
+        <span
+          className="filmRunTime"
+        >
+          126 min
+           
+        </span>
+      </div>
+      <div
+        className="description"
+      >
+        a lot of long-long text
+      </div>
+    </div>
+  </div>
+</div>
+`;

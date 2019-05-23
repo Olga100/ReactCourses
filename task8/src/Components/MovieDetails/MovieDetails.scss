@@ -1,0 +1,71 @@
+$headerColor: #333736;
+$netflexColor: #c15d69;
+
+.movieDetailsContainer {
+  display: flex;
+  flex-direction: column;
+
+  height: 300px;
+  padding: 20px 50px;
+  background-color: $headerColor;
+  color: white;
+
+  .movieDetailsContainer-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .neflixroulette {
+      color: $netflexColor;
+    }
+
+    .redirect {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      width: 110px;
+      font-weight: bold;
+      background-color: white;
+      color: $netflexColor;
+      text-decoration: none;
+      border: none;
+    }
+  }
+
+  .movieContainer {
+    display: flex;
+    height: 280px;
+
+    img.moviePoster {
+      height: 260px;
+      width: auto;
+    }
+    .movieInformation {
+      display: flex;
+      flex-direction: column;
+      width: 600px;
+      margin-left: 70px;
+
+
+      .titleMovieContanier {
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color:$netflexColor;
+      }
+      .releaseContinues {
+        margin-top: 15px;
+        margin-bottom: 40px;
+        font-weight: bold;
+
+        .filmTime {
+          margin-right: 20px;
+        }
+      }
+
+
+  }
+  }
+
+}

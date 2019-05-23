@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetailsPage should match snapshot with data 1`] = `
+<div>
+  Movie doesn't exist
+</div>
+`;

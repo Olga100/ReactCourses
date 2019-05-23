@@ -1,0 +1,9 @@
+.lineResultGenresContainer {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding-left: 50px;
+  font-weight: 600;
+  background-color: #f5f5f5; }
+
+/*# sourceMappingURL=LineResultGenres.css.map */

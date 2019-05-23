@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieList/> Renders  component with list of the movie 1`] = `
+<div
+  className="mainContainer"
+>
+  <div
+    className="movieListContainer"
+  >
+    <div
+      className="movieThumbnailContainer"
+    >
+      <a
+        className="link-wrapper"
+        href="/film/23456"
+        onClick={[Function]}
+      >
+        <div
+          className="poster"
+        >
+          <img
+            alt="poster"
+            src="http://www.theamazingpics.com/wp-content/uploads/2014/05/Amazing-Picture-of-A-Japanese-Garden-in-Portland-USA.jpg"
+          />
+        </div>
+        <div
+          className="title-year"
+        >
+          <div>
+             
+            title1
+          </div>
+          <span>
+            2011
+          </span>
+        </div>
+        <div>
+          <span
+            className="genres"
+          >
+            horror
+          </span>
+        </div>
+      </a>
+    </div>
+    <div
+      className="movieThumbnailContainer"
+    >
+      <a
+        className="link-wrapper"
+        href="/film/12345"
+        onClick={[Function]}
+      >
+        <div
+          className="poster"
+        >
+          <img
+            alt="poster"
+            src="http://www.theamazingpics.com/wp-content/uploads/2014/05/Amazing-Picture-of-A-Japanese-Garden-in-Portland-USA.jpg"
+          />
+        </div>
+        <div
+          className="title-year"
+        >
+          <div>
+             
+            title2
+          </div>
+          <span>
+            2011
+          </span>
+        </div>
+        <div>
+          <span
+            className="genres"
+          >
+            fantasy
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MovieList/> Renders  component without data of movies 1`] = `
+<div
+  className="mainContainer"
+>
+  <div
+    className="movieListContainer"
+  >
+    <div
+      className="noFilms"
+    >
+      No films found
+    </div>
+  </div>
+</div>
+`;
