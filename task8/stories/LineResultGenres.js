@@ -7,13 +7,7 @@ import SearchPage from './../src/Containers/SearchPage/SearchPage';
 import {getQuery} from "../src/Reducers/mainReducer";
 
 
-const movies = [{
-    id: 2,
-    title: "Star wars",
-    poster_path: "https:\/\/images-na.ssl-images-amazon.com\/images\/M\/MV5BZTRmNjQ1ZDYtNDgzMy00OGE0LWE4N2YtNTkzNWQ5ZDhlNGJmL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY500_CR0,0,352,500_AL_.jpg",
-    genres: ["Crime", "Drama"],
-    "release_date": "2012-10-05"
-}];
+const movies = ["action", "fantasy"];
 
 const searchPageWith = {
     movies: movies,
@@ -60,7 +54,5 @@ const TableComponent = ({ propDefinitions }) => {
 };
 
 storiesOf('SearchPage', module)
-   .add('searchPageWith1', () => <SearchPage movies={searchPageWith} />)
+    .add('searchPageWith1', () => <SearchPage movies={searchPageWith} />)
     .add('searchPageWith2', withInfo({})(() => <SearchPage movies={searchPageWith} />));
-
-
