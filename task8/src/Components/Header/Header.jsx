@@ -57,19 +57,19 @@ const styles = {
     filterOptionsContainer: {
         display: 'flex'
     },
-    activeButton: {
-        backgroundColor: '#c15d69',
-        height: '30px',
-        margin : '0 5px',
-        padding: '10px 15px',
-        color: 'white',
-        border: 'none',
-        outline: 'none'
-    },
+
     button: {
         backgroundColor: 'darkgray',
         marginRight: '20px',
         padding: '10px 15px',
+    },
+
+    activeButton: {
+        backgroundColor: '#c15d69',
+        padding: '10px 15px',
+        color: 'white',
+        border: 'none',
+        outline: 'none'
     },
     search: {
         height: '30px',
@@ -135,14 +135,14 @@ class Header extends Component<Props> {
                             <button
                                 id="title"
                                 type="button"
-                                className= { (searchBy === "title") ?  classes.activeButton  : null }
+                                className= { [ classes.button,((searchBy === "title") ?  classes.activeButton  : null)].join(' ') }
                                 onClick={this.handleSearchByTitle}
                             >TITLE
                             </button>
-                            <button className={classes.button}
+                            <button
                                 id="genre"
                                 type="button"
-                                className= {  (searchBy === "genres") ? classes.activeButton : null }
+                                className= {  [classes.button, ((searchBy === "genres") ? classes.activeButton : null)].join(' ') }
                                 onClick={this.handleSearchByGenre}
                             >GENRE
                             </button>
