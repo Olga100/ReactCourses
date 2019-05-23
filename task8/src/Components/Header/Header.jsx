@@ -1,9 +1,19 @@
+// @flow
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 import './Header.scss';
 
-class Header extends Component {
+
+type Props = {
+         searchText: string,
+         searchBy: string,
+        /* searchTextChanged: () => void,                     ???
+         searchByChanged:() => void,
+         search: () => void*/
+};
+
+class Header extends Component<Props> {
 
     setSearchBy = (searchBy) => {
         const { searchByChanged } = this.props;
@@ -50,7 +60,7 @@ class Header extends Component {
                             id="title"
                             type="button"
                             className={(searchBy === "title")? "activeButton" : null}
-                            onClick = {this.handleSearchByTitle}                          //fix to handle...
+                            onClick = {this.handleSearchByTitle}
                         >TITLE</button>
                         <button
                             id="genre"
@@ -67,12 +77,13 @@ class Header extends Component {
     }
 }
 
-Header.propTypes = {
+
+/*Header.propTypes = {
     searchText: PropTypes.string,
     searchBy: PropTypes.string.isRequired,
     searchTextChanged: PropTypes.func,
     searchByChanged: PropTypes.func,
     search: PropTypes.func
-};
+};*/
 
 export default Header;

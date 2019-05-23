@@ -1,11 +1,16 @@
+// @flow
+
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
 
 import './MovieList.scss';
 import MovieThumbnail from './../../Components/MovieThumblail/MovieThumbnail';
+import LineResultGenres from "../LineResultGenres/LineResultGenres";
 
-class MovieList extends Component {
+type Props = {
+    movies: Array<object>
+};
+
+class MovieList extends Component<Props> {
     constructor(props) {
         super(props);
     }
@@ -32,8 +37,8 @@ class MovieList extends Component {
     }
 }
 
-MovieList.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.object)
+MovieLists.defaultProps = {
+    movies: null
 };
 
 export default MovieList;

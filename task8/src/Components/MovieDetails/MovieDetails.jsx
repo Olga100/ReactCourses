@@ -1,16 +1,22 @@
+// @flow
+
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
+
 
 import './MovieDetails.scss';
 
-class MovieDetails extends Component {
+type Props = {
+    movie: object
+};
 
-    getYear(isoDate) {
+class MovieDetails extends Component<Props> {
+
+    getYear(isoDate: string) {
         return new Date(isoDate).getFullYear();
     }
 
-    getRunTime(runtime) {
+    getRunTime(runtime: string) {
         if(runtime) {
             return runtime + " " + "min";
         }
@@ -46,8 +52,12 @@ class MovieDetails extends Component {
     }
 }
 
-MovieDetails.propTypes = {
+MovieDetails.defaultProps = {
+    movie: null
+};
+
+/*MovieDetails.propTypes = {
  movie: PropTypes.object.isRequired
- };
+ };*/
 
 export default MovieDetails;
