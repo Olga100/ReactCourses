@@ -2,8 +2,8 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { BrowserRouter as Router } from 'react-router-dom';
 import MovieThumbnail from '../src/Components/MovieThumblail/MovieThumbnail';
-import {BrowserRouter as Router} from 'react-router-dom';
 
 const movie = {
   id: 2,
@@ -15,9 +15,6 @@ const movie = {
 
 
 storiesOf('MovieThumbnail', module)
-  .add('MovieThumbnailWith', withInfo({})(() =>
-      <Router>
+  .add('MovieThumbnailWith', withInfo({})(() => <Router>
         <MovieThumbnail movie={movie}/>
       </Router>));
-
-
