@@ -1,8 +1,7 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-
-//import './LineResultMovieList.scss';
 
 
 const styles = {
@@ -28,8 +27,14 @@ const styles = {
     active: {
             color: '#c15d69'
         }
-    }
+    };
 
+type Props = {
+    moviesCount: number,
+    sortBy: string,
+    sortByChanged: (sortByChanged: string) => void,
+    classes: { lineResultContainer: {},  sortByWrapper: {}, sortByWrapperSpan: {}, active: {} }
+};
 
 const LineResultMovieList = ({moviesCount, sortBy, sortByChanged, classes}) => {
     const sortByReleaseDate = () => sortByChanged('release_date');
@@ -55,10 +60,10 @@ const LineResultMovieList = ({moviesCount, sortBy, sortByChanged, classes}) => {
         </div>
 };
 
-LineResultMovieList.propTypes = {
+/*LineResultMovieList.propTypes = {
     moviesCount: PropTypes.number,
     sortBy:  PropTypes.string,
     sortByChanged: PropTypes.func,
-};
+};*/
 
 export default injectSheet(styles)(LineResultMovieList);

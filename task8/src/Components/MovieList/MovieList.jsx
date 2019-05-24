@@ -2,10 +2,10 @@
 
 import React, { Component } from 'react';
 
-//import './MovieList.scss';
 import MovieThumbnail from './../../Components/MovieThumblail/MovieThumbnail';
 import LineResultGenres from "../LineResultGenres/LineResultGenres";
 import injectSheet from 'react-jss';
+import type { Movie } from '../../types';
 
 const styles = {
     mainContainer: {
@@ -29,10 +29,16 @@ const styles = {
 }
 
 type Props = {
-    movies: Array<object>
+    movies: Array<Movie>,
+    classes: { mainContainer: {}, movieListContainer: {} }
 };
 
 class MovieList extends Component<Props> {
+
+    static defaultProps = {
+        movies: []
+    };
+
     constructor(props) {
         super(props);
     }
@@ -60,9 +66,5 @@ class MovieList extends Component<Props> {
             </div>)
     }
 }
-
-MovieList.defaultProps = {
-    movies: null
-};
 
 export default injectSheet(styles)(MovieList);

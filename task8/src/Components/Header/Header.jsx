@@ -1,9 +1,6 @@
 // @flow
 import React, {Component} from 'react';
-import injectSheet from 'react-jss';;
-//import PropTypes from 'prop-types';
-
- //import './Header.scss';
+import injectSheet from 'react-jss';
 
 const styles = {
     header: {
@@ -84,9 +81,22 @@ const styles = {
 type Props = {
     searchText: string,
     searchBy: string,
-    /* searchTextChanged: () => void,                     ???
-     searchByChanged:() => void,
-     search: () => void*/
+    searchTextChanged: (searchText: string) => void,
+    searchByChanged:(searchBy: string) => void,
+    search: (searchText: string, searchBy: string) => void,
+    classes: {
+        header: {},
+        netflex: {},
+        titleFind: {},
+        inputContainer: {},
+        searchTitle: {},
+        searchMovie: {},
+        filterContainer: {},
+        filterOptionsContainer: {},
+        button: {},
+        activeButton: {},
+        search: {}
+    }
 };
 
 class Header extends Component<Props> {
@@ -155,14 +165,4 @@ class Header extends Component<Props> {
     }
 }
 
-
-/*Header.propTypes = {
-    searchText: PropTypes.string,
-    searchBy: PropTypes.string.isRequired,
-    searchTextChanged: PropTypes.func,
-    searchByChanged: PropTypes.func,
-    search: PropTypes.func
-};*/
-
-//export default Header;
 export default injectSheet(styles)(Header);

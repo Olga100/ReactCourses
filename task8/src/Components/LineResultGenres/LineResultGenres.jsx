@@ -15,9 +15,9 @@ const styles = {
 };
 
 
-type
-Props = {
-    genres: Array < string >
+type Props = {
+    genres: Array <string>,
+    classes: { lineResultGenresContainer: {} }
 };
 
 
@@ -28,7 +28,7 @@ const LineResultGenres = ({genres, classes}: Props) => {
 };
 
 LineResultGenres.defaultProps = {
-    genres: null
+    genres: []
 };
 
 export default injectSheet(styles)(LineResultGenres);

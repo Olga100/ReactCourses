@@ -2,17 +2,12 @@
 import React, {Component} from 'react';
 import type {Node} from 'react';
 import {Link} from 'react-router-dom';
+import type { Movie } from '../../types';
 
 import './MovieThumbnail.scss';
 
 type Props = {
-    movie: {
-        id: number,
-        title: string,
-        poster_path: string,
-        release_date: string,
-        genres: Array<string>
-    }
+    movie: Movie
 };
 
 class MovieThumbnail extends Component<Props> {

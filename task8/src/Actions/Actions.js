@@ -27,21 +27,17 @@ export function receiveRelatedMovies(movies) {
 }
 
 export function loadMovies(query) {
-  return function (dispatch) {
-    return axios.get(`https://reactjs-cdp.herokuapp.com/movies?${query}`)
-      .then(response => dispatch(receiveMovies(response.data.data)));
-  };
+  return dispatch => axios.get(`https://reactjs-cdp.herokuapp.com/movies?${query}`)
+    .then(response => dispatch(receiveMovies(response.data.data)));
 }
 
 export function loadMovieDetails(movieId) {
-  return function (dispatch) {
-    return getMovie(movieId)
-      .then((movieDetails) => {
-        dispatch(receiveMovieDetails(movieDetails));
-        getMoviesByGenres(movieDetails.genres)
-          .then(movies => dispatch(receiveRelatedMovies(movies)));
-      });
-  };
+  return dispatch => getMovie(movieId)
+    .then((movieDetails) => {
+      dispatch(receiveMovieDetails(movieDetails));
+      getMoviesByGenres(movieDetails.genres)
+        .then(movies => dispatch(receiveRelatedMovies(movies)));
+    });
 }
 
 export function sortBy(field) {

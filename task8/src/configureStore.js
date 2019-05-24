@@ -13,4 +13,4 @@ if (process.browser
 
 const store = createStore(mainReducer, compose(applyMiddleware(thunkMiddleware), devTools));
 
-export { store };
+export default store;

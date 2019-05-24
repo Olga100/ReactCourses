@@ -6,3 +6,4 @@ cypress
 coverage
 **/*test.js
 _snapshots_
+flow-typed/

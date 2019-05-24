@@ -1,9 +1,6 @@
 import React from 'react';
 import injectSheet from 'react-jss';
 
-
-
-
 const styles =  {
     footer: {
         display: 'flex',

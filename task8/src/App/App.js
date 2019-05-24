@@ -1,18 +1,16 @@
-import React, {Component} from 'react';
-import {Provider} from 'react-redux'
-import {store} from '../configureStore';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import store from '../configureStore';
 
 import Footer from '../Components/Footer/Footer';
 import SearchPage from '../Containers/SearchPage/SearchPage';
 import MovieDetailsPage from '../Containers/MovieDetailsPage/MovieDetailsPage';
 import NotFoundPage from '../Components/NotFoundPage/NotFounPage';
-import {mainReducer} from '../Reducers/mainReducer';
-/*import './App.scss';*/
+/* import './App.scss'; */
 
-class App extends Component {
-    render() {
-        return (
+function App() {
+  return (
             <Router>
                 <Provider store={store}>
                     <div className="App">
@@ -25,9 +23,7 @@ class App extends Component {
                         <Footer/>
                     </div>
                 </Provider>
-            </Router>
-        );
-    }
+            </Router>);
 }
 
 export default App;
