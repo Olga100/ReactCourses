@@ -73,11 +73,11 @@ class SearchPageView extends Component {
 
 
 const mapStateToProps =  (state) => ({
-    movies: state.movies,
-    sortBy: state.sortBy,
-    searchBy: state.searchBy,
-    searchText: state.searchText,
-    query: getQuery(state)
+    movies: state.get("movies"),
+    sortBy: state.get("sortBy"),
+    searchBy: state.get("searchBy"),
+    searchText: state.get("searchText"),
+    query: getQuery(state.toJS())
 });
 
 const mapDispatchToProps = {

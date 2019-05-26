@@ -45,8 +45,8 @@ class MovieDetailsPageView extends Component {
 }
 
 const mapStateToProps =  (state) => ({
-    movieDetails: state.movieDetails,
-    relatedMovies: state.relatedMovies
+    movieDetails: state.get("movieDetails"),
+    relatedMovies: state.get("relatedMovies")
 });
 
 const mapDispatchToProps = {

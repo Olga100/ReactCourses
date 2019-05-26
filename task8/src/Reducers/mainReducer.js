@@ -1,34 +1,39 @@
+import Immutable from 'immutable';
+
 import {
   RECEIVE_MOVIES, SORT_BY, SEARCH_BY, SEARCH_TEXT, RECEIVE_MOVIE_DETAILS, RECEIVE_RELATED_MOVIES,
 } from '../constants';
 
-const initialState = {
+
+const initialState = Immutable.fromJS({
   movies: [],
   sortBy: 'release_date',
   searchBy: 'title',
   searchText: '',
-};
+});
+
 
 export default function mainReducer(state = initialState, action) {
   const { type } = action;
 
   switch (type) {
     case RECEIVE_MOVIES:
-      return { ...state, movies: action.movies };
+      return state.set('movies', action.movies);
     case RECEIVE_MOVIE_DETAILS:
-      return { ...state, movieDetails: action.movieDetails };
+      return state.set('movieDetails', action.movieDetails);
     case RECEIVE_RELATED_MOVIES:
-      return { ...state, relatedMovies: action.movies };
+      return state.set('relatedMovies', action.movies);
     case SORT_BY:
-      return { ...state, sortBy: action.field };
+      return state.set('sortBy', action.field);
     case SEARCH_BY:
-      return { ...state, searchBy: action.field };
+      return state.set('searchBy', action.field);
     case SEARCH_TEXT:
-      return { ...state, searchText: action.text };
+      return state.set('searchText', action.text);
     default:
       return state;
   }
 }
+
 
 export const getQuery = (state) => {
   const { searchText, searchBy, sortBy } = state;
